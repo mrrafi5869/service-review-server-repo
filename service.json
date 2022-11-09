@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "img": "https://i.ibb.co/KbPBwM1/gift-habeshaw-2c-KC88sjb0c-unsplash.jpg",
+        "name": "Portrait & DarkMode",
+        "price": "$200",
+        "desc": "Image result for portrait photography Portrait photography is a very well-known and popular style of photography. This style of photography is all about trying to capture the personality, identity, soul, and emotions of a person by utilizing the background atmosphere, poses, and lighting"
+    },
+    {
+        "id": 2,
+        "img": "https://i.ibb.co/rGXV4QB/mitchell-orr-Ly-FIj-Xo-FY-unsplash.jpg",
+        "name": "Holud Photography.",
+        "price": "$250",
+        "desc": "A picture is a great way to convey your message quickly to an audience without them reading through a lot of text. Shareability: Images can be easily shared by other people, which means your story will be seen be a larger audience. You could even link the image back to an article you want your target audience to read."
+    },
+    {
+        "id": 3,
+        "img": "https://i.ibb.co/xsnLZGD/al-elmes-ULHx-Wq8reao-unsplash.jpg",
+        "name": "Wedding Photography",
+        "price": "$350",
+        "desc": "Photojournalistic. Candid and documentary-style photographs make for some of the most heartfelt and memorable images, which is why many photographers have adopted a photojournalistic style. These photographers treat the wedding day almost like a feature or news story."
+    },
+    {
+        "id": 4,
+        "img": "https://i.ibb.co/rQqHFG7/marc-a-sporys-NO8-Sj4d-KE8k-unsplash.jpg",
+        "name": "Holud and Wedding",
+        "price": "$500",
+        "desc": "Photography is the art, application, and practice of creating durable images by recording light, either electronically by means of an image sensor, or chemically by means of a light-sensitive material such as photographic film."
+    },
+    {
+        "id": 5,
+        "img": "https://i.ibb.co/V3Mmdjs/victoria-priessnitz-tx-Uof-B-l-P4-M-unsplash.jpg",
+        "name": "Candid pic with travel",
+        "price": "$300",
+        "desc": "Color photography started to become popular and accessible with the release of Eastman Kodak’s “Kodachrome” film in the 1930s. Before that, almost all photos were monochromatic – although a handful of photographers, toeing the line between chemists and alchemists, had been using specialized techniques to capture color images for decades before. You’ll find some fascinating galleries of photos from the 1800s or early 1900s captured in full color, worth exploring if you have not seen them already."
+    },
+    {
+        "id": 6,
+        "img": "https://i.ibb.co/PNJ9h4g/leo-foureaux-Or-UUf-RE9-J8-unsplash.jpg",
+        "name": "Photography & Videography",
+        "price": "$700",
+        "desc": "On-camera monitors are an essential tool for anyone doing video work, but a proper display is often quite expensive. Modern iPhones and iPads have spectacular screens, however, and in those displays are a ton of potential for filmmakers. The Accsoon SeeMo acts as a go-between for your camera and iPhone or iPad, allowing you to feed it an HDMI signal from your camera and use it as an on-camera monitor. How does it perform in practice? This great video review takes a look."
+    }
+]
