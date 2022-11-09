@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const { MongoClient, ServerApiVersion } = require("mongodb");
+const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 require("dotenv").config();
 const app = express();
 app.use(cors());
@@ -19,19 +19,25 @@ async function run() {
 
     app.get("/service", async (req, res) => {
       const query = {};
-      const cursor = servicesCollection.find(query);
+
+      const cursor = servicesCollection.find(query).limit(3).sort({"name": 1});
+      const services = await cursor.toArray();
+      res.send(services);
+    });
+
+    app.get("/allservices", async (req, res) => {
+      const query = {};
+
+      const cursor = servicesCollection.find(query).sort({"name": 1});
       const services = await cursor.toArray();
       res.send(services);
     });
 
     app.get("/service/:id", async (req, res) => {
-    //   const id = req.params.id;
-    //   const service = services.find((singleService) => singleService.id == id);
-    //   res.send(service);
-    const id = req.params.id;
-    const query = {_id: Object(id)};
-    const service = await servicesCollection.findOne(query);
-    res.send(service);
+        const id = req.params.id;
+        const query = {_id: ObjectId(id)};
+        const service = await servicesCollection.findOne(query);
+        res.send(service);
     });
   } finally {
   }
@@ -39,15 +45,9 @@ async function run() {
 
 run().catch((err) => console.error(err));
 
-const services = require("./service.json");
-
 app.get("/", (req, res) => {
   res.send("service review is running");
 });
-
-// app.get("/service", (req, res) => {
-//     res.send(services);
-// });
 
 app.listen(port, () => {
   console.log("service running in port", port);
