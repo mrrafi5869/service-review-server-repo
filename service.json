@@ -1,6 +1,5 @@
 [
     {
-        "id": 1,
         "img": "https://i.ibb.co/KbPBwM1/gift-habeshaw-2c-KC88sjb0c-unsplash.jpg",
         "name": "Portrait & DarkMode",
         "price": "$200",
@@ -12,7 +11,6 @@
         }
     },
     {
-        "id": 2,
         "img": "https://i.ibb.co/rGXV4QB/mitchell-orr-Ly-FIj-Xo-FY-unsplash.jpg",
         "name": "Holud Photography.",
         "price": "$250",
@@ -24,7 +22,6 @@
         }
     },
     {
-        "id": 3,
         "img": "https://i.ibb.co/xsnLZGD/al-elmes-ULHx-Wq8reao-unsplash.jpg",
         "name": "Wedding Photography",
         "price": "$350",
@@ -36,7 +33,6 @@
         }
     },
     {
-        "id": 4,
         "img": "https://i.ibb.co/rQqHFG7/marc-a-sporys-NO8-Sj4d-KE8k-unsplash.jpg",
         "name": "Holud and Wedding",
         "price": "$500",
@@ -48,7 +44,6 @@
         }
     },
     {
-        "id": 5,
         "img": "https://i.ibb.co/TqNW4y5/mubariz-mehdizadeh-t3zr-Em88ehc-unsplash.jpg",
         "name": "Candid pic with travel",
         "price": "$300",
@@ -60,7 +55,6 @@
         }
     },
     {
-        "id": 6,
         "img": "https://i.ibb.co/PNJ9h4g/leo-foureaux-Or-UUf-RE9-J8-unsplash.jpg",
         "name": "Photography & Videography",
         "price": "$700",
