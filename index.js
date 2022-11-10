@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const jwt = require('jsonwebtoken');
 const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 require("dotenv").config();
 const app = express();
@@ -15,10 +16,32 @@ const client = new MongoClient(uri, {
   serverApi: ServerApiVersion.v1,
 });
 
+function verifyJWT (req, res, next) {
+  console.log();
+  const authHeader = req.headers.authorization;
+  if(!authHeader){
+    res.status(401).send({message: "unauthorized access"});
+  }
+  const token = authHeader.split(' ')[1]
+  jwt.verify(token, process.env.ACCESS_TOKEN, function(err, decoded){
+    if(err){
+      res.status(401).send({message: 'unauthorized access'});
+    }
+    req.decoded = decoded;
+    next();
+  })
+}
+
 async function run() {
   try {
     const servicesCollection = client.db("photography").collection("services");
     const serviceReviews = client.db('photography').collection("reviews");
+
+    app.post('/jwt',(req, res) => {
+      const user = req.body;
+      const token = jwt.sign(user, process.env.ACCESS_TOKEN, {expiresIn: '1h'});
+      res.send({token});
+    })
 
     app.get("/service", async (req, res) => {
       const query = {};
@@ -43,7 +66,11 @@ async function run() {
 
     // service reviews
 
-    app.get('/reviews', async(req, res) => {
+    app.get('/reviews', verifyJWT, async(req, res) => {
+      const decoded = req.decoded;
+      if(decoded.email !== req.query.email){
+        res.status(403).send({message: 'unauthorized access'})
+      }
       let query = {};
       if(req.query.email){
         query = {
@@ -53,6 +80,13 @@ async function run() {
       const cursor = serviceReviews.find(query);
       const reviews = await cursor.toArray();
       res.send(reviews);
+    });
+
+    app.patch('/reviews/:id', async (req, res) => {
+      const id = req.params.id;
+      const query = {_id: ObjectId(id)};
+      const result = await serviceReviews.findOne(query);
+      res.send(result);
     })
 
     app.post('/reviews', async(req, res) => {
@@ -66,6 +100,13 @@ async function run() {
       const query = {_id: ObjectId(id)};
       const result = await serviceReviews.deleteOne(query);
       res.send(result)
+    });
+
+    // services
+    app.post('/service', async(req, res) => {
+      const service = req.body;
+      const result = await servicesCollection.insertOne(service);
+      res.send(result);
     })
   } finally {
   }
